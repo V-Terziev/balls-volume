@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bujwf8ujtv2xy"]
+
+[ext_resource type="Script" path="res://src/Case.gd" id="1_8hn2q"]
+
+[node name="Visual" type="SubViewportContainer"]
+custom_minimum_size = Vector2(640, 640)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Case" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(640, 640)
+render_target_update_mode = 4
+script = ExtResource("1_8hn2q")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0tptfgnpbdok"]
+
+[ext_resource type="Script" path="res://src/Case3D.gd" id="1_6ac83"]
+[ext_resource type="PackedScene" uid="uid://1cw5pqoggyj6" path="res://ctm_ui/CarouselButton.tscn" id="2_nhtdx"]
+
+[node name="Case3D" type="Node3D"]
+top_level = true
+script = ExtResource("1_6ac83")
+
+[node name="MeshContainer" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
+
+[node name="BigLight" type="OmniLight3D" parent="Camera3D"]
+omni_range = 4096.0
+omni_attenuation = 9.5774e-05
+
+[node name="BrightLight" type="OmniLight3D" parent="Camera3D"]
+light_energy = 8.0
+light_cull_mask = 4293918721
+omni_range = 64.0
+omni_attenuation = 0.5
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+
+[node name="RenderButton" parent="InterfaceLayer" instance=ExtResource("2_nhtdx")]
+offset_left = 392.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 45.0
+
+[connection signal="carouseled" from="InterfaceLayer/RenderButton" to="." method="_on_render_button_carouseled"]

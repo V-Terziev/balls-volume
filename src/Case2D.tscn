@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://sjh5ksvqyor4"]
+
+[ext_resource type="Script" path="res://src/Case2D.gd" id="1_0k3oo"]
+[ext_resource type="PackedScene" uid="uid://1cw5pqoggyj6" path="res://ctm_ui/CarouselButton.tscn" id="2_ije77"]
+
+[node name="Case2D" type="Node2D"]
+script = ExtResource("1_0k3oo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="RenderButton" parent="InterfaceLayer" instance=ExtResource("2_ije77")]
+offset_left = 392.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 45.0
+
+[connection signal="carouseled" from="InterfaceLayer/RenderButton" to="." method="_on_render_button_carouseled"]

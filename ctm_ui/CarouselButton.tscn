@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://1cw5pqoggyj6"]
+
+[ext_resource type="Script" path="res://ctm_ui/CarouselButton.gd" id="1_1wyt5"]
+[ext_resource type="FontFile" uid="uid://r6euwvkql041" path="res://visual/CodeFont.ttf" id="2_eh1lj"]
+
+[node name="CarouselButton" type="HBoxContainer"]
+offset_right = 64.0
+offset_bottom = 16.0
+script = ExtResource("1_1wyt5")
+
+[node name="Left" type="Button" parent="."]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "<"
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(176, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_eh1lj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="Button" parent="."]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = ">"
+
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]

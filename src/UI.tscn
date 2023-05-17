@@ -1,0 +1,383 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5lfr8r3iyi52"]
+
+[ext_resource type="Script" path="res://src/UI.gd" id="1_gnult"]
+[ext_resource type="PackedScene" uid="uid://bp2vpf7g8w8aj" path="res://ctm_ui/Spinbox.tscn" id="2_mer14"]
+[ext_resource type="FontFile" uid="uid://r6euwvkql041" path="res://visual/CodeFont.ttf" id="2_yt358"]
+[ext_resource type="PackedScene" uid="uid://1cw5pqoggyj6" path="res://ctm_ui/CarouselButton.tscn" id="3_euoe1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u36q5"]
+bg_color = Color(0.05, 0.0125, 0, 1)
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.45098, 0.0431373, 0.0431373, 1)
+corner_detail = 1
+
+[sub_resource type="InputEventKey" id="InputEventKey_3oqf0"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_fwqyr"]
+events = [SubResource("InputEventKey_3oqf0")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_hupd7"]
+device = -1
+keycode = 50
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_63f33"]
+events = [SubResource("InputEventKey_hupd7")]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_x5u0j"]
+color = Color(0.65, 0.065, 0.065, 1)
+grow_begin = -6.0
+grow_end = -6.0
+thickness = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqjj7"]
+bg_color = Color(0.05, 0.0125, 0, 1)
+border_width_top = 3
+border_width_right = 3
+border_color = Color(0.45, 0.045, 0.045, 1)
+corner_detail = 1
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_gnult")
+
+[node name="Control" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(384, 384)
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0.061, 0.048, 0.1, 1)
+
+[node name="Inspector" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 167.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_u36q5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Inspector"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="GenContainer" type="VBoxContainer" parent="Control/Inspector/MarginContainer"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Control/Inspector/MarginContainer/GenContainer"]
+layout_mode = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="Case1" type="Button" parent="Control/Inspector/MarginContainer/GenContainer/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+shortcut = SubResource("Shortcut_fwqyr")
+shortcut_in_tooltip = false
+text = "1D"
+
+[node name="Case2" type="Button" parent="Control/Inspector/MarginContainer/GenContainer/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+shortcut = SubResource("Shortcut_63f33")
+shortcut_in_tooltip = false
+text = "2D"
+
+[node name="Case3" type="Button" parent="Control/Inspector/MarginContainer/GenContainer/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+shortcut_in_tooltip = false
+text = "3D"
+
+[node name="Run" type="Button" parent="Control/Inspector/MarginContainer/GenContainer/Buttons"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+shortcut_in_tooltip = false
+text = "⟲"
+
+[node name="Settings" type="Button" parent="Control/Inspector/MarginContainer/GenContainer/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+shortcut_in_tooltip = false
+text = "⚙"
+
+[node name="HSeparator1" type="HSeparator" parent="Control/Inspector/MarginContainer/GenContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxLine_x5u0j")
+
+[node name="GenSettings" type="VBoxContainer" parent="Control/Inspector/MarginContainer/GenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="Grid" type="GridContainer" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 3
+columns = 2
+
+[node name="Label" type="Label" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/MarginContainer/Grid"]
+layout_mode = 2
+text = "Count"
+
+[node name="Count" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/MarginContainer/Grid" instance=ExtResource("2_mer14")]
+unique_name_in_owner = true
+layout_mode = 2
+config_bind = &"count"
+
+[node name="Label2" type="Label" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/MarginContainer/Grid"]
+layout_mode = 2
+text = "Max offset"
+
+[node name="MaxOffset" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/MarginContainer/Grid" instance=ExtResource("2_mer14")]
+unique_name_in_owner = true
+layout_mode = 2
+config_bind = &"max_offset"
+
+[node name="Label3" type="Label" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/MarginContainer/Grid"]
+layout_mode = 2
+text = "Min radius"
+
+[node name="MinRadius" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/MarginContainer/Grid" instance=ExtResource("2_mer14")]
+unique_name_in_owner = true
+layout_mode = 2
+config_bind = &"min_radius"
+
+[node name="Label4" type="Label" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/MarginContainer/Grid"]
+layout_mode = 2
+text = "Max radius"
+
+[node name="MaxRadius" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/MarginContainer/Grid" instance=ExtResource("2_mer14")]
+unique_name_in_owner = true
+layout_mode = 2
+config_bind = &"max_radius"
+
+[node name="ResetAll" type="Button" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Reset to defaults"
+
+[node name="HSeparator1" type="HSeparator" parent="Control/Inspector/MarginContainer/GenContainer/GenSettings"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxLine_x5u0j")
+
+[node name="GenInfo" type="RichTextLabel" parent="Control/Inspector/MarginContainer/GenContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_yt358")
+theme_override_font_sizes/normal_font_size = 12
+autowrap_mode = 0
+selection_enabled = true
+
+[node name="Output" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 144)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -149.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_xqjj7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Output"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="OutputDock" type="VBoxContainer" parent="Control/Output/MarginContainer"]
+layout_mode = 2
+
+[node name="AlgoBox" type="VBoxContainer" parent="Control/Output/MarginContainer/OutputDock"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Output/MarginContainer/OutputDock/AlgoBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 70
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Output/MarginContainer/OutputDock/AlgoBox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Current" parent="Control/Output/MarginContainer/OutputDock/AlgoBox/MarginContainer/VBoxContainer" instance=ExtResource("3_euoe1")]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="AlgoSettings" type="VBoxContainer" parent="Control/Output/MarginContainer/OutputDock/AlgoBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="Control/Output/MarginContainer/OutputDock/AlgoBox/MarginContainer/VBoxContainer/AlgoSettings"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 2
+columns = 2
+
+[node name="ArgLabel" type="Label" parent="Control/Output/MarginContainer/OutputDock/AlgoBox/MarginContainer/VBoxContainer/AlgoSettings/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 32)
+layout_mode = 2
+size_flags_vertical = 1
+vertical_alignment = 1
+
+[node name="Arg" parent="Control/Output/MarginContainer/OutputDock/AlgoBox/MarginContainer/VBoxContainer/AlgoSettings/Grid" instance=ExtResource("2_mer14")]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1
+max_value = 65536
+is_float = false
+
+[node name="Benchmarks" type="MarginContainer" parent="Control/Output/MarginContainer/OutputDock/AlgoBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 48
+
+[node name="Grid" type="HBoxContainer" parent="Control/Output/MarginContainer/OutputDock/AlgoBox/Benchmarks"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/Output/MarginContainer/OutputDock/AlgoBox/Benchmarks/Grid"]
+layout_mode = 2
+text = "Benchmark runs"
+
+[node name="BenchmarkRuns" parent="Control/Output/MarginContainer/OutputDock/AlgoBox/Benchmarks/Grid" instance=ExtResource("2_mer14")]
+unique_name_in_owner = true
+layout_mode = 2
+config_bind = &"benchmark_runs"
+min_value = 1
+max_value = 8
+is_float = false
+
+[node name="HSeparator" type="HSeparator" parent="Control/Output/MarginContainer/OutputDock/AlgoBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxLine_x5u0j")
+
+[node name="Buttons" type="HBoxContainer" parent="Control/Output/MarginContainer/OutputDock"]
+layout_mode = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="Run" type="Button" parent="Control/Output/MarginContainer/OutputDock/Buttons"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+shortcut_in_tooltip = false
+text = ">"
+
+[node name="Mode" type="Button" parent="Control/Output/MarginContainer/OutputDock/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+shortcut_in_tooltip = false
+text = "V"
+
+[node name="Settings2" type="Button" parent="Control/Output/MarginContainer/OutputDock/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+shortcut_in_tooltip = false
+text = "⚙"
+
+[node name="HSeparator" type="HSeparator" parent="Control/Output/MarginContainer/OutputDock"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxLine_x5u0j")
+
+[node name="Output" type="RichTextLabel" parent="Control/Output/MarginContainer/OutputDock"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_yt358")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+autowrap_mode = 0
+
+[connection signal="pressed" from="Control/Inspector/MarginContainer/GenContainer/Buttons/Case1" to="." method="switch_to_1d"]
+[connection signal="pressed" from="Control/Inspector/MarginContainer/GenContainer/Buttons/Case2" to="." method="switch_to_2d"]
+[connection signal="pressed" from="Control/Inspector/MarginContainer/GenContainer/Buttons/Case3" to="." method="switch_to_3d"]
+[connection signal="pressed" from="Control/Inspector/MarginContainer/GenContainer/Buttons/Run" to="." method="generate_new"]
+[connection signal="toggled" from="Control/Inspector/MarginContainer/GenContainer/Buttons/Settings" to="." method="toggle_gen_settings"]
+[connection signal="pressed" from="Control/Inspector/MarginContainer/GenContainer/GenSettings/VBoxContainer/ResetAll" to="." method="reset_gen_settings"]
+[connection signal="carouseled" from="Control/Output/MarginContainer/OutputDock/AlgoBox/MarginContainer/VBoxContainer/Current" to="." method="algo_carouseled"]
+[connection signal="pressed" from="Control/Output/MarginContainer/OutputDock/Buttons/Run" to="." method="run_algorithms"]
+[connection signal="pressed" from="Control/Output/MarginContainer/OutputDock/Buttons/Mode" to="." method="toggle_output_mode"]
+[connection signal="toggled" from="Control/Output/MarginContainer/OutputDock/Buttons/Settings2" to="." method="toggle_algo_settings"]
