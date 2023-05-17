@@ -12,6 +12,8 @@ This project was developed using the Godot Engine. It is relatively lightweight,
 
 - Godot Engine (4.0.2 most recently used, can be downloaded ![here](https://godotengine.org/download/))
 
+Once Godot Engine is downloaded and the code is downloaded, the `project.godot` file can then be recognized by Godot to open the project. It can then be run with <kbd>F5</kbd>.
+
 ## License
 
 This project is licensed under the permissive MIT License.
